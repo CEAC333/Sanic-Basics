@@ -5,7 +5,7 @@
 <details><summary>Show 1.- Intro</summary>
 <p>
 
-Sanic
+### Sanic
 Sanic is a Flask-like Python 3.5+ web server that’s written to go fast. It’s based on the work done by the amazing folks at magicstack, and was inspired by this article - https://magic.io/blog/uvloop-blazing-fast-python-networking/
 
 On top of being Flask-like, Sanic supports async request handlers. This means you can use the new shiny async/await syntax from Python 3.5, making your code non-blocking and speedy.
@@ -27,6 +27,35 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
 ```
     
+### Getting Started
+
+Make sure you have both pip and at least version 3.5 of Python before starting. Sanic uses the new async/await syntax, so earlier versions of python won't work.
+
+Install Sanic: 
+```
+python3 -m pip install sanic
+```
+Create a file called main.py with the following code:
+```python
+from sanic import Sanic
+from sanic.response import json
+
+app = Sanic()
+
+@app.route("/")
+async def test(request):
+    return json({"hello": "world"})
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000)
+```
+Run the server: 
+```
+python3 main.py
+```
+Open the address http://0.0.0.0:8000 in your web browser. You should see the message Hello world!.
+You now have a working Sanic server!
+
 </p>
 </details>
 
